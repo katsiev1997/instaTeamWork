@@ -1,10 +1,11 @@
-@import "./themes/normal";
-
+@import './themes/normal.scss';
+@import './themes/dark.scss';
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Segoe UI";
 
 }
 
