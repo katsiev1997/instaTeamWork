@@ -1,10 +1,15 @@
 import React from 'react'
+import { Input } from '@/shared/ui/Input/Input'
+import { Form } from '../shared/ui/index'
 
-
-export const App = () => {
+const App = () => {
   return (
-    <div className='app'>
-      App
+    <div className='app app_light'>
+
     </div>
   )
 }
+
+export default App
+
+
