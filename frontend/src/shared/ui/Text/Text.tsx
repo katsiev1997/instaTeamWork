@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, ReactNode } from 'react'
 import cls from './Text.module.scss'
 import { classNames } from '@/shared/lib/classNames'
 
@@ -30,15 +30,22 @@ const colorClasses: Record<TextColor, string> = {
 
 interface TextProps {
   className?: string
-  children: string
-  size: TextSize
-  weight: TextWeight
-  color: TextColor
-  tag: TextTag
+  children?: string
+  size?: TextSize
+  weight?: TextWeight
+  color?: TextColor
+  tag?: TextTag
 }
 
 export const Text: FC<TextProps> = (props) => {
-  const { className, children, size, weight, color, tag } = props
+  const {
+    className,
+    children,
+    size = 14,
+    weight = 400,
+    color = 'black',
+    tag = 'h1',
+  } = props
   const classes = [
     size && sizeClasses[size],
     weight && weightClasses[weight],
