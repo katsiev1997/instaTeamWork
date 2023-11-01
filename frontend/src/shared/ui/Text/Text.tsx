@@ -4,7 +4,7 @@ import { classNames } from '@/shared/lib/classNames'
 
 export type TextWeight = 200 | 400 | 500 | 600 | 700
 export type TextSize = 12 | 14 | 18 | 22 | 28
-export type TextColor = 'blue' | 'black' | 'gray'
+export type TextColor = 'blue' | 'black' | 'gray' | 'white'
 export type TextTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'span' | 'p'
 
 const sizeClasses: Record<TextSize, string> = {
@@ -26,6 +26,7 @@ const colorClasses: Record<TextColor, string> = {
   blue: cls.blue,
   gray: cls.gray,
   black: cls.black,
+  white: cls.white,
 }
 
 interface TextProps {
