@@ -4,7 +4,7 @@ import { IconName, IconType } from './IconName'
 
 interface IconProps {
     type: IconType
-    className?: string
+    className?: string 
 }
 
 export const Icon: FC<IconProps> =  ( { type , className }) => {
