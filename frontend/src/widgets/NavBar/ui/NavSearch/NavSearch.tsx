@@ -4,7 +4,7 @@ import React from 'react'
 export const NavSearch = () => {
   return (
     <div>
-      <Input />
+      <Input placeholder="Search..." />
     </div>
   )
 }

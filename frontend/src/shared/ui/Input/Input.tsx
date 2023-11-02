@@ -10,7 +10,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const Input: FC<InputProps> = forwardRef((props, ref: any) => {
-  const { className = '', value, error, placeholder = "Search...", ...rest } = props
+  const { className = '', value, error, placeholder, ...rest } = props
 
   const mods: Mods = {
     [cls.active]: value,
