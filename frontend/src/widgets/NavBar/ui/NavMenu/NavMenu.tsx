@@ -1,6 +1,7 @@
 import { Icon } from '@/shared/ui'
 import { FC, useState } from 'react'
 import { Link } from 'react-router-dom'
+import User from '@/shared/assets/User.png'
 import cls from './NavMenu.module.scss'
 
 export const NavMenu: FC = () => {
@@ -22,6 +23,7 @@ export const NavMenu: FC = () => {
         <Icon type="FindPeople" />
       </Link>
       <Icon type="Favorite" />
+      <img src={User} alt="" />      
     </div>
   )
 }

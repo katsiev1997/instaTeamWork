@@ -23,7 +23,6 @@ export const Input: FC<InputProps> = forwardRef((props, ref: any) => {
               <input ref={ref} value={value} {...rest} />
               {placeholder && <span className={cls.placeholder}>{placeholder}</span>}
           </div>
-
           <span className={classNames(cls.error, { [cls.errorActive]: error }, [])}>{error}</span>
       </div>
 
