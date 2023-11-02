@@ -1,7 +1,7 @@
-import React from 'react'
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import HomePage from '@/pages/HomePage/ui/HomePage'
 import { Suspense } from 'react'
+import NavBar from '@/widgets/Navbar/ui/NavBar/NavBar'
 import {
   ExploreLazyPage,
   LoginLazyPage,
@@ -14,6 +14,7 @@ import {
 const App = () => {
   return (
     <div className="app app_light">
+      <NavBar />
       <Suspense>
         <Routes>
           <Route path="/" element={<HomePage />} />
