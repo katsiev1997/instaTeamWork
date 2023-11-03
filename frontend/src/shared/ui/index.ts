@@ -1,5 +1,6 @@
 export { Input } from './Input/Input'
 export { Form } from './Form/Form'
+export { Spinner } from './Spinner/Spinner'
 export { HStack } from './Stack/HStack'
 export { VStack } from './Stack/VStack'
 export { Text } from './Text/Text'
