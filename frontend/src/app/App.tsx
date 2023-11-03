@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import HomePage from '@/pages/HomePage/ui/HomePage'
 import { Suspense } from 'react'
-import NavBar from '@/widgets/Navbar/ui/NavBar/NavBar'
+import NavBar from '@/widgets/NavBar/ui/NavBar/NavBar'
 import {
   ExploreLazyPage,
   LoginLazyPage,
