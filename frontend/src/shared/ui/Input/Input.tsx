@@ -6,11 +6,11 @@ import { useTranslation } from 'react-i18next'
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string
   error?: string
-  value: string
+  value?: string
 }
 
 export const Input: FC<InputProps> = forwardRef((props, ref: any) => {
-  const { className = '', value = 'gg', error, placeholder, ...rest } = props
+  const { className = '', value = '', error, placeholder, ...rest } = props
 
   const mods: Mods = {
     [cls.active]: value,
