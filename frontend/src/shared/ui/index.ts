@@ -1,3 +1,7 @@
 export { Input } from './Input/Input'
 export { Form } from './Form/Form'
-export { Icon } from './Icon/Icon'
+export { HStack } from './Stack/HStack'
+export { VStack } from './Stack/VStack'
+export { Text } from './Text/Text'
+export { Card } from './Card/Card'
+export { Button } from './Button/Button'
