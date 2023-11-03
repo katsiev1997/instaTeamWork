@@ -19,11 +19,10 @@ export const Input: FC<InputProps> = forwardRef((props, ref: any) => {
 
   return (
       <div className={classNames(cls.field, {value: cls.active}, [className])}>
-          <div className={cls.label}>
+          <div className={classNames(cls.label,mods, [])}>
               <input ref={ref} value={value} {...rest} />
               {placeholder && <span className={cls.placeholder}>{placeholder}</span>}
           </div>
-
           <span className={classNames(cls.error, { [cls.errorActive]: error }, [])}>{error}</span>
       </div>
 
