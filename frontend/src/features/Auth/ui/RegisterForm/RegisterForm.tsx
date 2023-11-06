@@ -2,10 +2,15 @@ import Logo from "@/shared/assets/Logo.png";
 import {Card ,  Button, Form, HStack, Input, Text, VStack  } from "@/shared/ui";
 import cls from "./RegisterForm.module.scss";
 import { Hr } from "@/shared/ui/Hr/Hr";
+import { RegisterFormValues, useRegisterForm } from "../../model/schema/useRegisterForm";
 
 export const RegisterForm = () => {
+    const {register , watch , handleSubmit , errors , isValid , RegisterFormNames} = useRegisterForm()
 
-
+    const onSubmit = (data: RegisterFormValues) => {
+        // delete data.cf_password
+        console.log(data)
+    }
 
 
 
@@ -15,7 +20,7 @@ export const RegisterForm = () => {
             <Card marginTop={50}>
                 <VStack  gap={12}>
                     <VStack  max gap={16} align="center">
-                      <img src={Logo} />
+                      <img src={Logo} />  
                       <div className={cls.text}>
                           <Text size={10} color="gray" align="center">
                           Зарегистрируйтесь, чтобы смотреть фото и видео ваших друзей.
@@ -60,26 +65,37 @@ export const RegisterForm = () => {
                           <Hr></Hr>
                       </HStack>
 
-                      <Form className={cls.form}>
+                      <Form onSubmit={handleSubmit(onSubmit)} className={cls.form}>
                           <VStack gap={16} max>
                               <Input
-
+                                {...register(RegisterFormNames.EMAIL)}
+                                value={watch(RegisterFormNames.EMAIL)}
+                                error={errors?.email?.message}
                               placeholder="Телефон или эл.адрес  "
                               />
                               <Input
-
+                               {...register(RegisterFormNames.FULLNAME)}
+                               value={watch(RegisterFormNames.FULLNAME)}
+                               error={errors?.fullname?.message}
                               placeholder="Имя и фамилия"
                               />
                               <Input
-                  
+                                {...register(RegisterFormNames.USERNAME)}
+                                value={watch(RegisterFormNames.USERNAME)}
+                                error={errors?.username?.message}
                               placeholder="Имя пользователя"
                               />
                               <Input
+                                {...register(RegisterFormNames.PASSWORD)}
+                                value={watch(RegisterFormNames.PASSWORD)}
+                                error={errors?.password?.message}
                               type="password"
                               placeholder="Пароль"
                               />
                               <Input
-                  
+                                {...register(RegisterFormNames.CF_PASSWORD)}
+                                value={watch(RegisterFormNames.CF_PASSWORD)}
+                                error={errors?.cf_password?.message}                  
                               type="password"
                               placeholder="Повторите пароль"
                               />
@@ -92,7 +108,7 @@ export const RegisterForm = () => {
                               подобные технологии.
                           </Text>
 
-                          <Button max type="submit">
+                          <Button max disabled={!isValid} type="submit">
                               Войти
                           </Button>
                       </Form>
