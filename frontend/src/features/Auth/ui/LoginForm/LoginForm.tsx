@@ -5,11 +5,16 @@ import { Hr } from "@/shared/ui/Hr/Hr";
 import { useForm} from 'react-hook-form'
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Link } from "react-router-dom";
+import { LoginFormValues, useLoginForm } from "../../model/schema/useLoginFrom";
 // import { login } from "../../model/service/loginByEmail";
 
 export const LoginForm = () => {
 
 
+    const { register  , handleSubmit ,  watch , isValid , errors , LoginFormNames } = useLoginForm()
+    const onSubmit = (data: LoginFormValues) => {
+        
+    }
 
 
 
@@ -21,13 +26,18 @@ export const LoginForm = () => {
                     <img
                         src={Logo}
                     />
-
-                    <Form className={cls.form}>
+                    <Form onSubmit={handleSubmit(onSubmit)} className={cls.form}>
                         <Input
                         type="text"
+                        value={watch(LoginFormNames.EMAIL)}
+                        error={errors?.email?.message}
                         placeholder="Телефон, имя пользователя или эл.адрес  "
+                        {...register(LoginFormNames.EMAIL)}
                         />
                         <Input
+                        {...register(LoginFormNames.PASSWORD)}
+                        value={watch(LoginFormNames.PASSWORD)}
+                        error={errors?.password?.message}
                         type="password"
                         placeholder="Пароль"
                         />
