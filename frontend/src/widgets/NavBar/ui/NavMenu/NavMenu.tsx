@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import User from '@/shared/assets/User.png'
 import cls from './NavMenu.module.scss'
 import { Avatar } from '@/shared/ui/Avatar/Avatar'
+import { LangSwitch } from '@/widgets/LangSwitch/ui/LangSwitch'
 
 export const NavMenu: FC = () => {
   const [ theme, setTheme ] = useState<boolean>(false)
@@ -29,6 +30,10 @@ export const NavMenu: FC = () => {
       </Link>
 
       <Icon type="Favorite" />
+
+      <li>
+        <LangSwitch></LangSwitch>
+      </li>
 
       <Avatar size={22} src={User} variant='default'></Avatar>    
     </div>

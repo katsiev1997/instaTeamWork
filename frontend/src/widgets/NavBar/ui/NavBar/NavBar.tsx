@@ -4,7 +4,7 @@ import { NavMenu } from '../NavMenu/NavMenu'
 import { NavSearch } from '../NavSearch/NavSearch'
 import Logo from '@/shared/assets/Logo.png'
 
-const NavBar: FC = () => {
+export const NavBar: FC = () => {
   return (
     <div className={cls.navbar}>
       <div className="container">
@@ -20,4 +20,3 @@ const NavBar: FC = () => {
   )
 }
 
-export default NavBar
