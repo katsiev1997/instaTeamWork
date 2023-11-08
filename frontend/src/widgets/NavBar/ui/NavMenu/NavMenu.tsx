@@ -2,12 +2,12 @@ import { Avatar, Icon } from '@/shared/ui'
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import cls from './NavMenu.module.scss'
-import { Avatar } from '@/shared/ui/Avatar/Avatar'
 import { LangSwitch } from '@/widgets/LangSwitch/ui/LangSwitch'
 import { Theme } from '@/shared/consts/theme'
 import { INavMenuItem } from '../../model/consts/navMenu'
 import { classNames } from '@/shared/lib/classNames'
 import { SwitchButton } from '@/features'
+import { ThemeContext } from '@/app/providers'
 
 export const NavMenu = () => {
   const { theme } = useContext(ThemeContext)
