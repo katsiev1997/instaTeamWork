@@ -1,7 +1,9 @@
 import { Routes, Route } from 'react-router-dom'
 import HomePage from '@/pages/HomePage/ui/HomePage'
 import { Suspense } from 'react'
+
 import { NavBar } from '@/widgets'
+
 import {
   ExploreLazyPage,
   LoginLazyPage,
@@ -21,6 +23,7 @@ function MyComponent() {
 
 const App = () => {
   return (
+
     <div className="app app_light">
       <Suspense fallback={<h1>Loading</h1>}>
 
@@ -43,6 +46,7 @@ const App = () => {
       </Suspense>
 
     </div>
+    
   )
 }
 

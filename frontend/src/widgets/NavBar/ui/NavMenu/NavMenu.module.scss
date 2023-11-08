@@ -1,6 +1,13 @@
-.navMenu {
+.nav {
+  .list {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     gap: 22px;
+  }
 }
+
+
+.dark{
+  filter: invert(100%);
+}
+
