@@ -64,6 +64,9 @@ export const NavMenu = () => {
           <SwitchButton />
         </li>
         <li>
+          <LangSwitch/>
+        </li>
+        <li>
           <Avatar />
         </li>
       </ul>

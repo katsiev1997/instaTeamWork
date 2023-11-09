@@ -23,10 +23,9 @@ function MyComponent() {
 
 const App = () => {
   return (
-
+ 
     <div className="app app_light">
       <Suspense fallback={<h1>Loading</h1>}>
-
         <NavBar />
 
         <MyComponent/>
