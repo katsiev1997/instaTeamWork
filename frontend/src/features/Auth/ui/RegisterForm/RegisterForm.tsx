@@ -3,13 +3,22 @@ import {Card ,  Button, Form, HStack, Input, Text, VStack  } from "@/shared/ui";
 import cls from "./RegisterForm.module.scss";
 import { Hr } from "@/shared/ui/Hr/Hr";
 import { RegisterFormValues, useRegisterForm } from "../../model/schema/useRegisterForm";
+import { useContext } from "react";
+import { ThemeContext } from "@/app/providers";
+import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
+import { registerByEmail } from "../../model/service/registerByEmail";
 
 export const RegisterForm = () => {
+    const { theme } = useContext(ThemeContext)
     const {register , watch , handleSubmit , errors , isValid , RegisterFormNames} = useRegisterForm()
+
+    const dispatch = useAppDispatch()
 
     const onSubmit = (data: RegisterFormValues) => {
         // delete data.cf_password
         console.log(data)
+
+        dispatch(registerByEmail(data))
     }
 
 
