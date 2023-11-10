@@ -6,7 +6,7 @@ import Logo from '@/shared/assets/Logo.png'
 import { ThemeContext } from '@/app/providers'
 import { Theme } from '@/shared/consts/theme'
 
-const NavBar: FC = () => {
+export const NavBar: FC = () => {
   const {theme} = useContext(ThemeContext)  
   return (
     <div className={cls.navbar}>
@@ -23,4 +23,3 @@ const NavBar: FC = () => {
   )
 }
 
-export default NavBar

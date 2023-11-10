@@ -8,3 +8,6 @@ export { Card } from './Card/Card'
 export { Button } from './Button/Button'
 export { Icon } from './Icon/Icon'
 export { Avatar } from './Avatar/Avatar'
+export { Modal } from './Modal/Modal'
+
+export { DropDown } from './Popups/DropDown/DropDown'
