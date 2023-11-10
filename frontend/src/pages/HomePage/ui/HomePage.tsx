@@ -8,9 +8,6 @@ const HomePage = () => {
   return (
     <div>
       HomePage
-      <Modal isOpen={true}>
-        <h1>Edit profile</h1>
-      </Modal>
     </div>
   )
 }

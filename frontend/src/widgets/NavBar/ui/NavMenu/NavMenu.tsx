@@ -1,4 +1,4 @@
-import { Avatar, Icon } from '@/shared/ui'
+import { Avatar, DropDown, Icon ,Text } from '@/shared/ui'
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import cls from './NavMenu.module.scss'
@@ -8,9 +8,13 @@ import { INavMenuItem } from '../../model/consts/navMenu'
 import { classNames } from '@/shared/lib/classNames'
 import { SwitchButton } from '@/features'
 import { ThemeContext } from '@/app/providers'
-
+import { MenuProps } from 'antd/es/menu'
+import { useSelector } from 'react-redux'
+import { AppLink } from '@/shared/ui/AppLink/AppLink'
 export const NavMenu = () => {
   const { theme } = useContext(ThemeContext)
+
+  // const authData = useSelector(getAuthData)
 
   const NavMenuItems: INavMenuItem[] = [
     {
@@ -32,6 +36,29 @@ export const NavMenu = () => {
       href: '/',
       iconType: 'Favorite',
     },
+  ]
+
+  const dropDownItems: MenuProps['items'] = [
+    {
+      label: <Text>Fullname</Text>,
+      key: "0"
+    },
+    {
+      label: <AppLink to={'./profile/'}>Профиль</AppLink>,
+      key: "1"
+    },
+    {
+      label: 'Сменить тему',
+      key: "2",
+    },
+    {
+      label: 'Настройки',
+      key: "3"
+    },
+    {
+      label: 'Выйти',
+      key: "4"
+    }
   ]
   return (
     <nav className={cls.nav}>
@@ -67,7 +94,10 @@ export const NavMenu = () => {
           <LangSwitch/>
         </li>
         <li>
-          <Avatar />
+          <DropDown items={dropDownItems} placement='bottomRight'>
+            <Avatar />
+          </DropDown>
+          
         </li>
       </ul>
     </nav>
