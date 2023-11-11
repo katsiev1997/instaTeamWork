@@ -5,7 +5,7 @@ import { classNames } from '@/shared/lib/classNames'
 export type TextWeight = 200 | 400 | 500 | 600 | 700
 export type TextSize = 10 | 12 | 14 | 18 | 22 | 28
 export type TextAlign = "center" | "left" | "right";
-export type TextColor = 'blue' | 'black' | 'gray' | 'white'
+export type TextColor = 'blue' | 'black' | 'gray' | 'white' | 'error'
 export type TextTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'span' | 'p'
 
 const sizeClasses: Record<TextSize, string> = {
@@ -35,6 +35,7 @@ const colorClasses: Record<TextColor, string> = {
   gray: cls.gray,
   black: cls.black,
   white: cls.white,
+  error: cls.error
 }
 
 interface TextProps {

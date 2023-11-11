@@ -11,7 +11,7 @@ const jwt = require('jsonwebtoken')
             if(user_name) return res.status(400).json({msg: "Пользователь с таким именем уже есть."})
 
             const user_email = await Users.findOne({email})
-            if(user_email) return res.status(400).json({mas: 'Почта занято'})
+            if(user_email) return res.status(400).json({msg: 'Почта занято'})
 
             if(password.length < 6) {
                 return res.status(400).json({msg: 'Минимально количество символов 6'})
@@ -26,7 +26,7 @@ const jwt = require('jsonwebtoken')
             await newUser.save()
 
             res.json({
-                msg: 'Регистрация прошла  успешна'
+                msg: 'Регистрация прошла успешна'
             })
 
 
