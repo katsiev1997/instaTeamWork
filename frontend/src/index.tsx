@@ -5,7 +5,6 @@ import { BrowserRouter } from 'react-router-dom'
 
 import { StoreProvider, ThemeProvider } from './app/providers'
 import './shared/config/i18n'
-import { ThemeProvider } from './app/providers'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(

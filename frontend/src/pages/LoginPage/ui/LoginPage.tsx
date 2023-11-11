@@ -1,4 +1,4 @@
-// import { LoginForm } from '@/features/Auth/ui/LoginForm/LoginForm'
+import { LoginForm } from '@/features/Auth/ui/LoginForm/LoginForm'
 import { Input } from '@/shared/ui'
 import { Card } from '@/shared/ui/Card/Card'
 import React from 'react'
@@ -6,7 +6,7 @@ import React from 'react'
 const LoginPage = () => {
   return (
     <div>
-      {/* <LoginForm></LoginForm> */}
+      <LoginForm></LoginForm>
     </div>
   )
 }

@@ -5,7 +5,7 @@ import axios from 'axios'
 export const registerByEmail = createAsyncThunk<any, any, ThunkConfig>(
   'auth/register',
   async (userData, thunkApi) => {
-    // const { getState, rejectWithValue, dispatch, extra } = thunkApi
+    const { getState, rejectWithValue, dispatch, extra } = thunkApi
     try {
       const res = await axios.post(
         'http://localhost:5000/api/register',
@@ -13,6 +13,7 @@ export const registerByEmail = createAsyncThunk<any, any, ThunkConfig>(
       )
       console.log(res)
     } catch (err: any) {
+      return rejectWithValue(err.response.data.msg)
       console.log(err.response.data.message)
     }
   }

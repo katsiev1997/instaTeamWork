@@ -1,4 +1,4 @@
-
 export interface AuthState {
-    loading: boolean;
+  loading: boolean
+  error: string
 }

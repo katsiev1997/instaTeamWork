@@ -9,7 +9,6 @@ import { classNames } from '@/shared/lib/classNames'
 import { SwitchButton } from '@/features'
 import { ThemeContext } from '@/app/providers'
 import { MenuProps } from 'antd/es/menu'
-import { useSelector } from 'react-redux'
 import { AppLink } from '@/shared/ui/AppLink/AppLink'
 export const NavMenu = () => {
   const { theme } = useContext(ThemeContext)
