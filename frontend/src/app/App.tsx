@@ -1,51 +1,34 @@
-import { Routes, Route } from 'react-router-dom'
-import HomePage from '@/pages/HomePage/ui/HomePage'
-import { Suspense } from 'react'
+import { Suspense, useEffect } from 'react'
 
 import { NavBar } from '@/widgets'
 
-import {
-  ExploreLazyPage,
-  LoginLazyPage,
-  MessengerLazyPage,
-  ProfileLazyPage,
-  RegisterLazyPage,
-  UserLazyPage,
-} from '@/pages'
-import { useTranslation } from 'react-i18next'
-
-
-function MyComponent() {
-  const { t, i18n } = useTranslation();
-
-  return <h1>{t('Добро пожаловать в React')}</h1>
-}
+import { useSelector } from 'react-redux'
+import { getAuthToken, getFetchAuthUser } from '@/entities/User'
+import { useAppDispatch } from '@/shared/hooks/useAppDispatch'
+import { LOCAL_STORAGE_TOKEN } from '@/shared/consts/localStorage'
+import { RouteProvider } from './providers'
 
 const App = () => {
+  const isLogged = !!useSelector(getAuthToken)
+  const dispatch = useAppDispatch()
+
+  const token = localStorage.getItem(LOCAL_STORAGE_TOKEN)
+
+  useEffect(() => {
+    if (token) {
+      dispatch(getFetchAuthUser())
+    }
+  }, [dispatch])
   return (
- 
     <div className="app app_light">
       <Suspense fallback={<h1>Loading</h1>}>
-        <NavBar />
+        {isLogged && <NavBar />}
 
-        <MyComponent/>
-        <div className='container'>
-          <Suspense fallback={<h1>Loading</h1>}>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/login" element={<LoginLazyPage />} />
-              <Route path="/register" element={<RegisterLazyPage />} />
-              <Route path="/explore" element={<ExploreLazyPage />} />
-              <Route path="/messenger" element={<MessengerLazyPage />} />
-              <Route path="/profile" element={<ProfileLazyPage />} />
-              <Route path="/user" element={<UserLazyPage />} />
-            </Routes>
-          </Suspense>
+        <div className="container">
+          <RouteProvider />
         </div>
       </Suspense>
-
     </div>
-    
   )
 }
 
