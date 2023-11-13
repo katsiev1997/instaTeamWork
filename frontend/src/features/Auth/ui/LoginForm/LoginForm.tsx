@@ -4,13 +4,15 @@ import cls from './LoginForm.module.scss'
 import { Hr } from '@/shared/ui/Hr/Hr'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { LoginFormValues, useLoginForm } from '../../model/schema/useLoginFrom'
 import { useContext } from 'react'
 import { ThemeContext } from '@/app/providers'
 import { useTranslation } from 'react-i18next'
-import { useDispatch } from 'react-redux'
-// import { login } from "../../model/service/loginByEmail";
+import { useDispatch, useSelector } from 'react-redux'
+import { loginByEmail } from '../../model/service/loginByEmail'
+import { getAuthError } from '../../model/selectors/getAuthError'
+import { getAuthLoading } from '../../model/selectors/getAuthLoading'
 
 export const LoginForm = () => {
   const { theme } = useContext(ThemeContext)
@@ -19,11 +21,19 @@ export const LoginForm = () => {
   const { register, handleSubmit, watch, isValid, errors, LoginFormNames } =
     useLoginForm()
   const dispatch = useDispatch()
-  const onSubmit = (data: LoginFormValues) => {
-    console.log(data)
-  }
+  const navigate = useNavigate()
 
-  const onLogin = () => {}
+  const authError = useSelector(getAuthError)
+  const authLoading = useSelector(getAuthLoading)
+
+  const onSubmit = async (data: LoginFormValues) => {
+    //@ts-ignore
+    const res = await dispatch(loginByEmail(data));
+
+    if (res.meta.requestStatus === "fulfilled") {
+      navigate("/");
+    }
+  };
 
   return (
     <HStack justify="center">

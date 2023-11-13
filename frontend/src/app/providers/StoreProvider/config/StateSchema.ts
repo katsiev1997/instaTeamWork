@@ -1,11 +1,20 @@
-import { AuthState } from "@/features/Auth";
+import { ProfileState } from '@/entities/Profile/model/types/profile'
+import { UserState } from '@/entities/User/model/types/user'
+import { AxiosInstance } from 'axios'
+import { AuthState } from '@/features/Auth'
 
 export interface StateSchema {
-    auth: AuthState
+  auth: AuthState
+  user: UserState
+  profile: ProfileState
 }
 
-export interface ThunkConfig {
-    rejectValue: any
-    extra: any
-    state: StateSchema
+export interface ThunkExtraArg {
+  api: AxiosInstance
+}
+
+export interface ThunkConfig<T> {
+  rejectValue: T
+  extra: ThunkExtraArg
+  state: StateSchema
 }
