@@ -42,6 +42,7 @@ export const LoginForm = () => {
           <VStack max gap={22} align="center">
             <img src={Logo} />
             <Form onSubmit={handleSubmit(onSubmit)} className={cls.form}>
+              {authError && <Text color='error'>{authError}</Text>}
               <Input
                 type="text"
                 value={watch(LoginFormNames.EMAIL)}

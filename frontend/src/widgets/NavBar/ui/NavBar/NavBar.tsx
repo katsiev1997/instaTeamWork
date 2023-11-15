@@ -1,6 +1,6 @@
 import { FC, useContext } from 'react'
 import cls from './NavBar.module.scss'
-import { NavMenu } from '../NavMenu/NavMenu'
+import { NavMenu } from '../NavMenu/NavMenu' 
 import { NavSearch } from '../NavSearch/NavSearch'
 import Logo from '@/shared/assets/Logo.png'
 import { ThemeContext } from '@/app/providers'
