@@ -1,8 +1,11 @@
+import { ProfileInfo } from '@/entities/Profile'
 import React from 'react'
-
+import cls from './ProfilePage.module.scss'
 const ProfilePage = () => {
   return (
-    <div>ProfilePage</div>
+    <div className={cls.profile}>
+      <ProfileInfo></ProfileInfo>
+    </div>
   )
 }
 

@@ -5,7 +5,7 @@ export interface User {
     email: string;
     followers: User[];
     following: User[];
-    fullName: string;
+    fullname: string;
     gender: string;
     mobile: string;
     password: string;

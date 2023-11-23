@@ -10,10 +10,12 @@ import { SwitchButton } from '@/features'
 import { ThemeContext } from '@/app/providers'
 import { MenuProps } from 'antd/es/menu'
 import { AppLink } from '@/shared/ui/AppLink/AppLink'
+import { useSelector } from 'react-redux'
+import { getAuthData } from '@/entities/User'
 export const NavMenu = () => {
   const { theme } = useContext(ThemeContext)
 
-  // const authData = useSelector(getAuthData)
+  const authData = useSelector(getAuthData);
 
   const NavMenuItems: INavMenuItem[] = [
     {
@@ -43,7 +45,12 @@ export const NavMenu = () => {
       key: "0"
     },
     {
-      label: <AppLink to={'./profile/'}>Профиль</AppLink>,
+      label: (
+        <AppLink to={`/profile/${authData._id}`}>
+          <Text >Профиль</Text>
+        </AppLink>
+      ),
+
       key: "1"
     },
     {

@@ -40,7 +40,7 @@ const colorClasses: Record<TextColor, string> = {
 
 interface TextProps {
   className?: string
-  children?: string
+  children?: ReactNode
   size?: TextSize
   weight?: TextWeight
   color?: TextColor

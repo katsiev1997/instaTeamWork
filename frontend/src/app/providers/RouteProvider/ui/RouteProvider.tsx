@@ -28,7 +28,7 @@ const RouteProvider = () => {
           </Route>
           <Route path="/explore" element={<ExploreLazyPage />} />
           <Route path="/messenger" element={<MessengerLazyPage />} />
-          <Route path="/profile" element={<ProfileLazyPage />} />
+          <Route path="/profile/:id" element={<ProfileLazyPage />} />
           <Route path="/user" element={<UserLazyPage />} />
         </Routes>
       </Suspense>
